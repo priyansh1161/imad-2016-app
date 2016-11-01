@@ -1,0 +1,17 @@
+body{
+    overflow-x: hidden !important;
+}
+
+.center , h2,h5{
+    margin-left: 15px;
+}
+h5{
+    color: #777;
+}
+.xm{
+    margin: 5px;
+    background-color: #3B5998;
+}
+i{
+    color: #fff;
+}

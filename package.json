@@ -1,15 +1,25 @@
 {
-  "name": "imad-2016-base",
-  "version": "0.1.0",
-  "description": "IMAD 2016 course app",
-  "main": "server.js",
+  "name": "vote8er",
+  "version": "0.0.1",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "express": "^4.14.0",
-    "morgan": "^1.7.0"
+    "body-parser": "^1.0.0",
+    "cookie-parser": "^1.0.1",
+    "debug": "^0.7.4",
+    "ejs": "*",
+    "express": "^4.0.0",
+    "express-session": "^1.13.0",
+    "mongoose": "^4.5.3",
+    "morgan": "^1.0.0",
+    "passport": "^0.3.2",
+    "passport-facebook": "^2.1.1",
+    "passport-google-oauth20": "*",
+    "passport-twitter": "^1.0.4",
+    "pg": "^6.1.0",
+    "static-favicon": "~1.0.0"
   }
 }

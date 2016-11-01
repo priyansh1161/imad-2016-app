@@ -1,0 +1,7 @@
+body{
+    overflow-x: hidden;
+}
+.note ,.warning{
+    margin : 5px;
+    color: red;
+}
