@@ -4,7 +4,7 @@ var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var passport = require('passport');
+// var passport = require('passport');
 var session =  require('express-session');
 // var mongoose = require('mongoose');
 
@@ -30,12 +30,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({ secret : 'x44'
-                ,resave: true
-                 ,saveUninitialized: true }));
+// app.use(session({ secret : 'x44'
+                // ,resave: true
+                //  ,saveUninitialized: true }));
 
 // require('./config/passport')(app); // setting passport and adding its stategies
-app.use('/', routes);
+// app.use('/', routes);
 // app.use('/users', users);
 // app.use('/auth',auth);
 // app.use('/polls',polls);
