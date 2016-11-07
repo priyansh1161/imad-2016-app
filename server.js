@@ -6,18 +6,18 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var passport = require('passport');
 var session =  require('express-session');
-var mongoose = require('mongoose');
+// var mongoose = require('mongoose');
 
-var routes = require('./routes/index');
-var users = require('./routes/users');
-var auth = require('./routes/auth');
-var polls = require('./routes/polls');
+// var routes = require('./routes/index');
+// var users = require('./routes/users');
+// var auth = require('./routes/auth');
+// var polls = require('./routes/polls');
 
 var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-mongoose.connect('mongodb://test:test@ds011785.mlab.com:11785/vote8er');
+// mongoose.connect('mongodb://test:test@ds011785.mlab.com:11785/vote8er');
 var port = process.env.PORT || 3000;
 app.listen(port, function() {
     console.log('App listening on port 3000!');
@@ -34,11 +34,11 @@ app.use(session({ secret : 'x44'
                 ,resave: true
                  ,saveUninitialized: true }));
 
-require('./config/passport')(app); // setting passport and adding its stategies 
+// require('./config/passport')(app); // setting passport and adding its stategies
 app.use('/', routes);
-app.use('/users', users);
-app.use('/auth',auth);
-app.use('/polls',polls);
+// app.use('/users', users);
+// app.use('/auth',auth);
+// app.use('/polls',polls);
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
