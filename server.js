@@ -1,29 +1,27 @@
 var express = require('express');
 var morgan = require('morgan');
 var path = require('path');
-// require('.db/config');
-var Pool = require('pg').Pool;
-var config = {
-  user : 'priyansh1161',
-  database : 'priyansh1161',
-  password : process.env.DB_PASSWORD || 'db-priyansh1161-66700',
-  port : '5432',
-  host : 'db.imad.hasura-app.io'
-};
-var pool = new Pool(config);
-
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+var session =  require('express-session');
+ require('./db/config');
+var signup = require('./routes/signup');
 
 var app = express();
-app.use(morgan('combined'));
-
+app.use(morgan('dev'));
+app.set('view engine', 'ejs');
+// app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({ secret : 'x44'
+  ,resave: true
+  ,saveUninitialized: true }));
+app.use('/signup',signup);
 app.get('/', function (req, res) {
-  // res.sendFile(path.join(__dirname, 'ui', 'index.html'));
-  pool.query('SELECT * FROM "Users"',function (err,res,done) {
-    if(err)
-      req.send(err);
-    else
-      req.send(res);
-  });
+   res.sendFile(path.join(__dirname, 'views', 'error.html'));
+
 });
 
 app.get('/ui/style.css', function (req, res) {

@@ -1,0 +1,8 @@
+﻿CREATE TABLE users
+(
+name varchar(255),
+ID SERIAL NOT NULL,
+salt text,
+password text,
+PRIMARY KEY (ID)
+)

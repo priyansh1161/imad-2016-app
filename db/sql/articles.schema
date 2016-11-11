@@ -1,0 +1,7 @@
+﻿CREATE TABLE articles
+(
+title varchar(225),
+body text,
+created_on timestamp DEFAULT CURRENT_TIMESTAMP,
+created_by varchar(255) references users(username) 	 
+)
