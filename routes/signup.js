@@ -1,23 +1,7 @@
 var express = require('express');
 var path = require('path');
 var db = require('../db/config');
-var crypto = require('crypto'),
-    algorithm = 'aes-256-ctr',
-    password = 'd6F3Efeq88usgg'; // should be made as env variable
-
-function encrypt(text){
-    var cipher = crypto.createCipher(algorithm,password);
-    var crypted = cipher.update(text,'utf8','hex');
-    crypted += cipher.final('hex');
-    return crypted;
-}
-
-function decrypt(text){
-    var decipher = crypto.createDecipher(algorithm,password);
-    var dec = decipher.update(text,'hex','utf8');
-    dec += decipher.final('utf8');
-    return dec;
-}
+var encr = require('../util/encr');
 var router = express.Router();
 
 router.get('/',function (req,res) {
@@ -30,7 +14,7 @@ router.post('/',function (req,res) {
            return res.status(500).json(err);
        // attach cookie to res
        //  (username) + encryption key = auth hash
-       res.cookie('auth',encrypt(req.body.username),{httpOnly : true});
+       res.session.auth = encr.encrypt(req.body.username);
        res.status(200).json({msg : 'ok'});
    });
 });

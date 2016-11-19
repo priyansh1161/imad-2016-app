@@ -18,12 +18,15 @@ module.exports = function (pool) {
           pool.query('SELECT * FROM "users"', cb);
       },
       findById: function (id, cb) {
-          pool.query(`SELECT * FROM "users" WHERE ID=$1`, [id], cb);
+          pool.query(`SELECT * FROM "users" WHERE "ID"=$1`, [id], cb);
       },
       createUser : function (obj,cb) {
           setPassword(obj.password,function (salt,hash) {
               pool.query(`INSERT INTO "users" (username,name,email,salt,hash) VALUES ($1,$2,$3,$4,$5)`,[obj.username,obj.name,obj.email,salt,hash],cb)
           });
+      },
+      findByUserName : function (username,cb) {
+          pool.query(`SELECT * FROM "users" WHERE username=$1`,[username],cb);
       },
       validatePassword : validatePassword,
       validateUser : function (userName,password,ID,cb) {
