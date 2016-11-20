@@ -10,7 +10,7 @@ var config = {
     user : 'priyansh1161',
     database : 'priyansh1161',
     port : '5432',
-    host : 'http://db.imad.hasura-app.io/',
+    host : 'db.imad.hasura-app.io',
     password : process.env.DB_PASSWORD
 
 };
