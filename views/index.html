@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/materialize/css/materialize.min.css">
+    <!--<link rel="stylesheet" href="signup.css">-->
+    <script src="/jquery-3.1.1.min.js"></script>
+    <!--<script src='https://www.google.com/recaptcha/api.js'></script>-->
+    <script src="/materialize/js/materialize.min.js"></script>
+    <!--<script src="./js/signup.js"></script>-->
+    <title>Articles</title>
+</head>
+<style>
+    .ctr{
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+<body>
+<div class="row">
+    <h3 class="center">Just another Blogging site</h3>
+    <h5 class="center">By Priyansh Gupta</h5>
+</div>
+<div style="display:table;">
+    <div style="display:table-cell;vertical-align:middle;">
+        <div style="margin-left:auto;margin-right:auto;">
+
+        </div>
+    </div>
+</div>
+    <div class="">
+        <div class="z-depth-4">
+            <h6 class="center-align">LOGIN</h6>
+            <form id="login-form" action="/login" method="post">
+                <div class="input-field">
+                    <input id="username" type="text" class="validate" name="username">
+                    <label for="username">User Name</label>
+                </div>
+                <div class="input-field">
+                    <input id="password" type="password" class="validate" name="password">
+                    <label for="password">Password</label>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <span id="xhr-response" class="red-text"></span>
+                    </div>
+                </div>
+                <div class="input-field center-align">
+                    <button class="btn " type="submit">Log In</button>
+                </div>
+            </form>
+            <p class="center-align">Or</p>
+            <div class="center-align">
+                <a href="/signup"><button class="btn ">Sign Up</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<!--<script>-->
+    <!--$('#login-form').submit(function(e) {-->
+        <!--e.preventDefault();-->
+        <!--var $input = $(this)[0];-->
+        <!--var formData = {};-->
+        <!--for(var i=0; i < $input.length - 1; i++){-->
+            <!--formData[$input[i].id] = $input[i].value;-->
+        <!--}-->
+        <!--console.log(formData);-->
+        <!--$.ajax({-->
+            <!--method: 'POST',-->
+            <!--url : '/login',-->
+            <!--data : formData,-->
+            <!--success : function (res) {-->
+                <!--$('#xhr-response').text(res.msg);-->
+                <!--console.log(res);-->
+                <!--window.location = '/articles';-->
+            <!--},-->
+            <!--error : function (xhr) {-->
+                <!--// console.log(xhr);-->
+                <!--$('#xhr-response').text(xhr.responseText);-->
+            <!--}-->
+        <!--})-->
+    <!--});-->
+<!--</script>-->
+</html>

@@ -7,13 +7,14 @@ module.exports = function (req,res,next) {
    if(req.user){
        next();
    }
-   else if (req.session && req.session.auth && req.session.auth.username){
+   console.log(req.session);
+    if (req.session && req.session.auth && req.session.auth.username){
        var username = encr.decrypt(req.session.auth.username);
        db.user.findByUserName(username,function (err,result) {
           if(err)
-              next(err);
+              return next(err);
            else
-               req.session.auth = {username : result.rows[0].ID };
+               req.session.auth = {username : encr.encrypt(result.rows[0].username) };
                req.user = result.rows[0];
                next();
        });

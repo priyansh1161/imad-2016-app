@@ -6,6 +6,14 @@ var config = {
     port : '5432',
     host : 'localhost'
 };
+ config = {
+    user : 'priyansh1161',
+    database : 'priyansh1161',
+    port : '5432',
+    host : 'http://db.imad.hasura-app.io/',
+    password : process.env.DB_PASSWORD
+
+};
 var pool = new Pool(config);
 
 var userQueries = require('./queries/user')(pool);
