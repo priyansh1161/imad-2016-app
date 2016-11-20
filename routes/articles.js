@@ -124,7 +124,7 @@ router.get('/find/:ID',function (req,res) {
    });
 });
 router.post('/find/:ID',function (req,res) {
-    req.body.created_by =  'coco98';
+    req.body.created_by =  req.user.username;
     db.article.addComment(req.params.ID,req.body,function (err,result) {
         if(err){
             console.log(err);

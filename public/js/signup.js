@@ -22,6 +22,8 @@ $('document').ready(function () {
                error : function (xhr) {
                    // console.log(xhr);
                    $('#xhr-response').text(xhr.responseText);
+                   window.location = '/';
+
                }
            })
         });

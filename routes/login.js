@@ -20,4 +20,8 @@ router.post('/',function (req,res) {
     else
         res.send('error');
 });
+router.get('/out',function (req,res) {
+   req.session.auth = {}; // make it empty object;
+   res.redirect('/');
+});
 module.exports = router;
