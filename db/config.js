@@ -6,14 +6,17 @@ var config = {
     port : '5432',
     host : 'localhost'
 };
-//  config = {
-//     user : 'priyansh1161',
-//     database : 'priyansh1161',
-//     port : '5432',
-//     host : 'db.imad.hasura-app.io',
-//     password : process.env.DB_PASSWORD
-//
-// };
+if(process.env.DB_PASSWORD) { //because i am sure that imad will make sure to put it there.
+// usually i would use process.env.production but imad dose't put that (may be)
+    config = {
+        user: 'priyansh1161',
+        database: 'priyansh1161',
+        port: '5432',
+        host: 'db.imad.hasura-app.io',
+        password: process.env.DB_PASSWORD
+
+    };
+}
 var pool = new Pool(config);
 
 var userQueries = require('./queries/user')(pool);
