@@ -59,6 +59,12 @@ var makeHtml = function (obj,rowCount,req,res) {
                console.log(full,$1);
                 if($1 === 'list')
                     return list;
+               if($1 === 'ifAdmin'){
+                   if(req.user.admin == true)
+                       return `<li><a href="/create/new">Create Article</a></li>`;
+                   else
+                       return '';
+               }
                 if($1 === 'pagination')
                     return pagination;
             });
@@ -82,9 +88,10 @@ var makeArticle = function (article,comments,req,res) {
         else {
              var result = file.replace(/{{(\w+)}}/ig,function (full,$1) {
                  if($1 === 'user')
-                     return 'coco98';
+                     return req.user.username;
                  if($1 === 'comment')
                      return comm;
+
                return article[$1];
             });
             console.log(result);
@@ -154,5 +161,6 @@ router.get('/:category',function(req,res){
 
  })
 });
+
 
 module.exports = router;

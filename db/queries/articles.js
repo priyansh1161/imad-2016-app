@@ -8,8 +8,8 @@ module.exports = function (pool) {
         deleteOne : function (ID,cb) {
             pool.query(`DELETE FROM "articles" WHERE "ID" = $1`,[ID],cb);
         },
-        createArticle : function (obj,cb) {
-            pool.query(`INSET INTO "articles" (title, body, created_by, category) VALUES ($1,$2,$3,$4)`,[obj.title,obj.body,obj.createdBy,obj.category],cb);
+        createArticle : function (obj,createdBy,cb) {
+            pool.query(`INSERT INTO "articles" (title, body, created_by, category) VALUES ($1,$2,$3,$4)`,[obj.title,obj.body,createdBy,obj.category],cb);
         },
         findByCategory : function (category,limit,offset,cb) {
             pool.query(`SELECT * FROM "articles"  WHERE "category" = $3 LIMIT $1 OFFSET $2 `,[limit,offset,category],cb);

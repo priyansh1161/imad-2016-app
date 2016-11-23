@@ -14,7 +14,7 @@ router.post('/',function (req,res) {
            return res.status(500).json(err);
        // attach cookie to res
        //  (username) + encryption key = auth hash
-       res.session.auth = encr.encrypt(req.body.username);
+       res.session = { auth : encr.encrypt(req.body.username) };
        res.status(200).json({msg : 'ok'});
    });
 });

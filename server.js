@@ -9,6 +9,7 @@ var signup = require('./routes/signup');
 var login = require('./routes/login');
 var auth = require('./routes/auth');
 var articles = require('./routes/articles');
+var create = require('./routes/create');
 var app = express();
 app.use(morgan('dev'));
 // app.set('view engine', 'ejs');
@@ -28,6 +29,7 @@ app.get('/', function (req, res) {
 });
 app.use('/signup',signup);
 app.use('/login',login);
+app.use('/create',auth,create);
 // app.use(auth);
 app.use('/articles',auth,articles);
 
